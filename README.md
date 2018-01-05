@@ -54,6 +54,18 @@ corresponding columns of the table.
   - blog posts and startup
 
 ### Relationships
+1) External news articles may thus only point to a single startup
+business, but any of our startup businesses may have multiple articles
+written about it.
+2) We allow for Startups to be categorized by Tag objects. A Tag
+object may categorize many Startup objects, and Startups may be
+categorized by many Tag objects.
+3) Blog Posts may be about multiple Startups, just as Startups may be
+written about multiple times.
+4) Posts may also be categorized by multiple Tags, just as Tags may be
+used multiple times o categorize different Posts.
+
+
 - one-to-many, News Link to Startup: A news link
 may belong to only one startup, but a startup may have multiple news
 links.
