@@ -7,4 +7,4 @@ class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateField()
     tags = models.ManyToManyField(Tag)
-    startups = models.ManyToManyField(Startups)
+    startups = models.ManyToManyField(Startup)
