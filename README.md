@@ -30,22 +30,35 @@ models. Each entity is a table and the associated attributes are the
 corresponding columns of the table.
 - Tag
   - tag name
+    - at most 31 characters
+    - unique
   - slug
+    - at most 31 characters
+    - unique
 - Startup
   - name of company
+    - at most 31 characters
+    - unique
   - slug
+    - at most 31 characters
+    - unique
   - description or purpose
   - date founded
   - contact email
   - website
 - News Link
   - title or headline
+    - at most 63 characters
   - link to article
+    - at most 255 characters
   - publication date
   - foreign key to Startup
 - Blog Post
   - post title
+    - at most 63 characters
   - slug
+    - at most 31 characters
+    - unique across months
   - post text or description
   - publication date
 - Many-to-Many Relationship
@@ -75,7 +88,6 @@ and each tag may belong to multiple startups.
 and each tag may belong to multiple blog posts.
 - many-to-many, Blog to Startup: Each blog post may be about multiple
 startups, and each startup may be written about about multiple times.
-
 
 ## Features
 1. a structured organization of startups according to tags
