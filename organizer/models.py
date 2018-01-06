@@ -24,7 +24,7 @@ class Startup(models.Model):
         help_text='A label for URL config.'
     )
     description = models.TextField()
-    founded_date = models.DateField('date founded'))
+    founded_date = models.DateField('date founded')
     contact = models.EmailField()
     website = models.URLField(max_length=255)
     tags = models.ManyToManyField(Tag)
