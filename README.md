@@ -78,7 +78,6 @@ written about multiple times.
 4) Posts may also be categorized by multiple Tags, just as Tags may be
 used multiple times o categorize different Posts.
 
-
 - one-to-many, News Link to Startup: A news link
 may belong to only one startup, but a startup may have multiple news
 links.
@@ -88,6 +87,15 @@ and each tag may belong to multiple startups.
 and each tag may belong to multiple blog posts.
 - many-to-many, Blog to Startup: Each blog post may be about multiple
 startups, and each startup may be written about about multiple times.
+
+## Model behavior
+- Tags are ordered alphabetically by name.
+- Startups are ordered alphabetically by name. The latest startup
+should be the most recently founded startup.
+- News links are ordered by descending publication date. The latest
+news link is the most recently published one.
+- Posts are ordered by descending publication date, then by title. The
+latest post is the most recently published one.
 
 ## Features
 1. a structured organization of startups according to tags
