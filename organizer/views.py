@@ -11,3 +11,8 @@ def homepage(request):
     context = {'tag_list': tag_list}
     output = template.render(context)
     return HttpResponse(output)
+
+def tag_detail(request, slug):
+    template = loader.get_template('organizer/tag_detail.html')
+    output = template.render()
+    return HttpResponse(output)
