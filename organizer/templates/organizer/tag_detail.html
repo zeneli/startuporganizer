@@ -1,11 +1,22 @@
-<h2><!-- name of tag --></h2>
+<!-- name of tag -->
+<h2>{{ tag.name }}</h2>
 <section>
   <h3>Startups</h3>
-  <ul><!-- list of startups related to tag --></ul>
+  <!-- list of startups related to tag -->
+  <ul>
+    {% for startup in tag.startup_set.all %}
+      <li><a href="">{{ startup.name }}</a></li>
+    {% endfor %}
+  </ul>
 </section>
 <section>
   <section>
     <h3>Blog Posts</h3>
-    <ul><!-- list of posts related to tag --></ul>
+    <!-- list of posts related to tag -->
+    <ul>
+      {% for post in tag.blog_posts.all %}
+      <li><a href="">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
   </section>
 </section>
