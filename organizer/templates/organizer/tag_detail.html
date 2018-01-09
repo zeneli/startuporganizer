@@ -1,10 +1,16 @@
 <!-- name of tag -->
-<h2>{{ tag.name }}</h2>
+<h2>{{ tag.name|title }}</h2>
 
 {% if tag.startup_set.all %}
 <section>
-  <h3>Startups</h3>
+  <h3>Startup{{ tag.startup_set.all|length|pluralize }}</h3>
   <!-- list of startups related to tag -->
+  <p>Tag is associated with
+    <em>
+    {{ tag.startup_set.all|length }}
+    startup{{ tag.startup_set.all|length|pluralize }}.
+    </em>
+  </p>
   <ul>
     {% for startup in tag.startup_set.all %}
       <li><a href="">{{ startup.name }}</a></li>
@@ -16,11 +22,16 @@
 {% if tag.blog_posts.all %}
 <section>
   <section>
-    <h3>Blog Posts</h3>
+    <h3>Blog Post{{ tag.blog_posts.all|length|pluralize }}</h3>
     <!-- list of posts related to tag -->
+    <p>Tag is associated with
+      <em>
+      {{ tag.blog_posts.all|length }}
+      blog post{{ tag.blog_posts.all|length|pluralize }}.
+      </em>
     <ul>
       {% for post in tag.blog_posts.all %}
-      <li><a href="">{{ post.title }}</a></li>
+      <li><a href="">{{ post.title|title }}</a></li>
       {% endfor %}
     </ul>
   </section>
