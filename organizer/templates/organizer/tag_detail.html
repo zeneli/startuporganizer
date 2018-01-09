@@ -1,5 +1,7 @@
 <!-- name of tag -->
 <h2>{{ tag.name }}</h2>
+
+{% if tag.startup_set.all %}
 <section>
   <h3>Startups</h3>
   <!-- list of startups related to tag -->
@@ -9,6 +11,9 @@
     {% endfor %}
   </ul>
 </section>
+{% endif %}
+
+{% if tag.blog_posts.all %}
 <section>
   <section>
     <h3>Blog Posts</h3>
@@ -20,3 +25,8 @@
     </ul>
   </section>
 </section>
+{% endif %}
+
+{% if not tag.startup_set.all and not tag.blog_posts.all %}
+<p>This tag is not related to any content.</p>
+{% endif %}
