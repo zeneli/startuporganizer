@@ -3,12 +3,12 @@
 
 {% if tag.startup_set.all %}
 <section>
-  <h3>Startup{{ tag.startup_set.all|length|pluralize }}</h3>
+  <h3>Startup{{ tag.startup_set.count|pluralize }}</h3>
   <!-- list of startups related to tag -->
   <p>Tag is associated with
     <em>
-    {{ tag.startup_set.all|length }}
-    startup{{ tag.startup_set.all|length|pluralize }}.
+    {{ tag.startup_set.count }}
+    startup{{ tag.startup_set.count|pluralize }}.
     </em>
   </p>
   <ul>
@@ -22,12 +22,12 @@
 {% if tag.blog_posts.all %}
 <section>
   <section>
-    <h3>Blog Post{{ tag.blog_posts.all|length|pluralize }}</h3>
+    <h3>Blog Post{{ tag.blog_posts.count|pluralize }}</h3>
     <!-- list of posts related to tag -->
     <p>Tag is associated with
       <em>
-      {{ tag.blog_posts.all|length }}
-      blog post{{ tag.blog_posts.all|length|pluralize }}.
+      {{ tag.blog_posts.count }}
+      blog post{{ tag.blog_posts.count|pluralize }}.
       </em>
     <ul>
       {% for post in tag.blog_posts.all %}
