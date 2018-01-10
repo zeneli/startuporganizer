@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from organizer.views import homepage, tag_detail, startup_detail
+from organizer.views import homepage, tag_detail, startup_detail, startup_list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', homepage),
     url(r'^tag/(?P<slug>[\w\-]+)/$', tag_detail),
+    url(r'^startup/$', startup_list),
     url(r'^startup/(?P<slug>[\w\-]+)/$', startup_detail),
 ]

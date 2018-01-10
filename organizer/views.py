@@ -18,6 +18,12 @@ def tag_detail(request, slug):
     output = template.render({'tag': tag})
     return HttpResponse(output)
 
+def startup_list(request):
+    startup_list = Startup.objects.all()
+    template = loader.get_template('organizer/startup_list.html')
+    output = template.render({'startup_list': startup_list})
+    return HttpResponse(output)
+
 def startup_detail(request, slug):
     startup = Startup.objects.get(slug__iexact=slug)
     template = loader.get_template('organizer/startup_detail.html')
