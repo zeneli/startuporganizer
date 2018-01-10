@@ -2,7 +2,8 @@
 <ul>
   <!-- list of tags -->
   {% for tag in tag_list %}
-  <li><a href="">{{ tag.name|title }}</a></li>
+    <li><a href="">{{ tag.name|title }}</a></li>
+  {% empty %}<!-- if list is empty -->
+    <p><em>There are currently no Tags available.</em></p>
   {% endfor %}
 </ul>
-      
