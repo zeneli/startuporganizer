@@ -13,7 +13,11 @@
   </p>
   <ul>
     {% for startup in tag.startup_set.all %}
-      <li><a href="">{{ startup.name }}</a></li>
+    <li>
+      <a href="{% url 'organizer_startup_detail' startup.slug %}">
+	{{ startup.name }}
+      </a>
+    </li>
     {% endfor %}
   </ul>
 </section>
