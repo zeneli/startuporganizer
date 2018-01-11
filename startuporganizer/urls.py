@@ -13,19 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
 
-from organizer.views import homepage, tag_detail, startup_detail, startup_list
+from organizer import urls as organizer_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # ex: /
-    url(r'^$', homepage, name='homepage'),
-    # ex: /tag/djagno-web
-    url(r'^tag/(?P<slug>[\w\-]+)/$', tag_detail, name='organizer_tag_detail'),
-    # ex: /startup
-    url(r'^startup/$', startup_list, name='organizer_startup_list'),
-    # ex: /startup/google
-    url(r'^startup/(?P<slug>[\w\-]+)/$', startup_detail, name='organizer_startup_detail'),
+    url(r'^', include(organizer_urls)),
 ]
