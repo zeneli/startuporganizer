@@ -1,12 +1,25 @@
-<h2>Post List</h2>
-<ul>
-  {% for post in post_list %}
-  <li>
+{% for post in post_list %}
+<article>
+  <header>
+  <h2>
     <a href="">
       {{ post.title|title }}
     </a>
-  </li>
-  {% empty %}
+  </h2>
+  <p>Written on:
+    <time datetime="{{ post.pub_date|date:"Y-m-d" }}">
+      	<!-- l prints the full name of the day, e.g. 'Monday'.
+             F prints the full  name of the month, e.g. 'Janurary'.
+             j prints one- or two-digit day, e.g. '1',
+             Y prints four digit year, e.g. '2018'.
+        -->
+	{{ post.pub_date|date:"l, F j, Y" }}
+    </time>
+  </p>
+  </header>
+  <p>{{ post.text|truncatewords:20 }}</p>
+  <p><a href="">Read more&hellip;</a></p>
+</article>
+{% empty %}
   <p><em>There are currently no Posts available.</em></p>
-  {% endfor %}
-</ul>
+{% endfor %}
