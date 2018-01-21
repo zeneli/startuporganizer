@@ -9,7 +9,7 @@ Blog - Posts
 <article>
   <header>
   <h2>
-    <a href="{% url 'blog_post_detail' post.pub_date.year post.pub_date.month post.slug %}">
+    <a href="{{ post.get_absolute_url }}">
       {{ post.title|title }}
     </a>
   </h2>
@@ -25,7 +25,7 @@ Blog - Posts
   </p>
   </header>
   <p>{{ post.text|truncatewords:20 }}</p>
-  <p><a href="">Read more&hellip;</a></p>
+  <p><a href="{{ post.get_absolute_url }}">Read more&hellip;</a></p>
 </article>
 {% empty %}
   <p><em>There are currently no Posts available.</em></p>
