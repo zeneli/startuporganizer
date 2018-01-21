@@ -1,11 +1,13 @@
 from django.conf.urls import url
 
-from .views import homepage, tag_detail, startup_detail, startup_list
+from .views import homepage, tag_list, tag_detail, startup_detail, startup_list
 
 
 urlpatterns = [
     # ex: /
     url(r'^$', homepage, name='homepage'),
+    # ex: /tag/
+    url(r'^/tag/$', tag_list, name='organizer_tag_list'),
     # ex: /tag/djagno-web
     url(r'^tag/(?P<slug>[\w\-]+)/$', tag_detail, name='organizer_tag_detail'),
     # ex: /startup

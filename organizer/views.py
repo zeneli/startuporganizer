@@ -3,8 +3,12 @@ from django.template import loader
 
 from .models import Tag, Startup
 
-
 def homepage(request):
+    template = loader.get_template('organizer/homepage.html')
+    output = template.render({})
+    return HttpResponse(output)
+
+def tag_list(request):
     tag_list = Tag.objects.all()
     template = loader.get_template(
         'organizer/tag_list.html')
