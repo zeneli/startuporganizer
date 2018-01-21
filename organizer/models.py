@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -11,6 +12,9 @@ class Tag(models.Model):
 
     class Meta:
         ordering = ['name']
+
+    def get_absolute_url(self):
+        return reverse('organizer_tag_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.name.title()
