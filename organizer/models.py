@@ -38,6 +38,9 @@ class Startup(models.Model):
         # Latest startups are the ones most recently founded.
         get_latest_by = 'founded_date'
 
+    def get_absolute_url(self):
+        return reverse('organizer_startup_detail', kwargs={'slug': self.slug})
+        
     def __str__(self):
         return self.name
 
