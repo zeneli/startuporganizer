@@ -1,3 +1,10 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+Blog - Posts
+{% endblock %}
+
+{% block content %}
 {% for post in post_list %}
 <article>
   <header>
@@ -23,3 +30,4 @@
 {% empty %}
   <p><em>There are currently no Posts available.</em></p>
 {% endfor %}
+{% endblock %}

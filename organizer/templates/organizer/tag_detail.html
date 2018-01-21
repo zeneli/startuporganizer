@@ -1,6 +1,20 @@
+<!-- Extend base organizer,
+  -- unless a parent template is specified in controller.
+-->
+{% extends parent_template|default:"organizer/base_organizer.html" %}
+
 <!-- display a single Tag object and list all of the startups and blog --
   -- posts associated with the Tag
   -->
+
+<!-- Override the title block in the parent template
+  -- by displaying the parent templates title content
+  -- and the variable tag objects name
+  -->
+{% block title %}
+{{ block.super }} - {{ tag.name|title }}
+{% endblock %}
+
 
 <!-- name of tag -->
 <h2>{{ tag.name|title }}</h2>
