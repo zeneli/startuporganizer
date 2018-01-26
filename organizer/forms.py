@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from .models import Tag
+from .models import NewsLink, Startup, Tag
 
 
 # TagForm inherits from forms.ModelForm so we can connect it to the
@@ -25,3 +25,15 @@ class TagForm(forms.ModelForm):
         if new_slug == 'create':
             raise ValidationError('Slug may not be "create".')
         return new_slug
+
+
+class StartupForm(forms.ModelForm):
+    class Meta:
+        model = Startup
+        fields = '__all__'
+
+
+class NewsLinkForm(forms.ModelForm):
+    class Meta:
+        model = Startup
+        fields = '__all__'
