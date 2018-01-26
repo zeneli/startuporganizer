@@ -1,6 +1,6 @@
 from django import forms
 
-from .models 
+from .models import Tag
 
 
 class TagForm(forms.Form):
