@@ -4,6 +4,16 @@ from django.core.exceptions import ValidationError
 from .models import NewsLink, Startup, Tag
 
 
+class SlugCleanMixin:
+    """Mixin class for slug cleaning method."""
+
+    def clean_slug(self):
+        new_slug = (self.cleaned_data['slug'].lower())
+        if new_slug == 'create':
+            raise ValidationError('Slug may not be "create".')
+        return new_slug
+
+
 # TagForm inherits from forms.ModelForm so we can connect it to the
 # corresponding Tag model. Helps maintain DRY principle.
 # TagForm inherits from SlugCleanMixin in order to mix the
@@ -30,13 +40,3 @@ class NewsLinkForm(forms.ModelForm):
     class Meta:
         model = Startup
         fields = '__all__'
-
-
-class SlugCleanMixin:
-    """Mixin class for slug cleaning method."""
-
-    def clean_slug(self):
-        new_slug = (slef.cleaned_data['slug'].lower())
-        if new_slug == 'create':
-            raise ValidationError('Slug may not be "create".')
-        return new_slug
