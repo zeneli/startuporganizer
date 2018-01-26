@@ -32,6 +32,13 @@ class StartupForm(forms.ModelForm):
         model = Startup
         fields = '__all__'
 
+    # clean_slug (copy of TagForm's clean_slug)
+    def clean_slug(self):
+        new_slug = (slef.cleaned_data['slug'].lower())
+        if new_slug == 'create':
+            raise ValidationError('Slug may not be "create".')
+        return new_slug
+
 
 class NewsLinkForm(forms.ModelForm):
     class Meta:
