@@ -1,12 +1,25 @@
 from django.http.response import HttpResponse
 from django.template import loader
+from django.shortcuts import redirect, render
 
 from .models import Tag, Startup
+from .forms import TagForm
+
 
 def homepage(request):
     template = loader.get_template('organizer/homepage.html')
     output = template.render({})
     return HttpResponse(output)
+
+def tag_create(request):
+    if request.method == 'POST':
+        form = TagForm(request.POST)
+        if form.is_valid():
+            new_tag = form.save()
+            return redirect(new_tag)
+    else:  # request.method != 'POST'
+        form = TagForm()
+    return render(request, 'organizer/tag_form.html', {'form': form})
 
 def tag_list(request):
     tag_list = Tag.objects.all()
